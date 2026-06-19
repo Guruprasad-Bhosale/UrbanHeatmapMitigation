@@ -18,7 +18,7 @@ st.set_page_config(page_title="Pune Urban Heat Mitigation", layout="wide", initi
 st.markdown("""
     <style>
     .big-font { font-size:24px !important; font-weight: bold; }
-    .stMetric { background-color: #f0f2f6; padding: 15px; border-radius: 10px; }
+    div[data-testid="stMetric"] { background-color: #262730; padding: 15px; border-radius: 10px; border: 1px solid #4B4B4B; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -46,7 +46,8 @@ if not df.empty:
 
     # --- SIDEBAR ---
     with st.sidebar:
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Pune_Montage.png/400px-Pune_Montage.png", use_column_width=True)
+        # FIXED: Changed use_column_width to use_container_width to remove the deprecation warning
+        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Pune_Montage.png/400px-Pune_Montage.png", use_container_width=True)
         st.title("⚙️ AI Engine Settings")
         st.markdown("**Target Region:** Pune (Shivajinagar Grid)")
         st.markdown("**AI Engine:** Physics-Informed Neural Network (PINN)")
@@ -100,7 +101,7 @@ if not df.empty:
             ).add_to(m_base)
             
         colormap.add_to(m_base)
-        st_folium(m_base, width=600, height=500, key="base_map")
+        st_folium(m_base, use_container_width=True, height=500, key="base_map")
 
     with map_col2:
         st.subheader("❄️ AI-Optimized Strategy Map")
@@ -134,7 +135,8 @@ if not df.empty:
                     tooltip=f"Tree Canopy (-{row['Baseline_Predicted_LST'] - row['Final_Mitigated_LST']:.2f}°C)"
                 ).add_to(m_opt)
 
-        st_folium(m_opt, width=600, height=500, key="opt_map")
+        colormap.add_to(m_opt)
+        st_folium(m_opt, use_container_width=True, height=500, key="opt_map")
 
 else:
     st.warning("Awaiting data execution...")
