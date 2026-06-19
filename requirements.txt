@@ -1,0 +1,29 @@
+# Data & Configuration
+pandas
+numpy
+pyyaml
+
+# Spatial & Earth Observation
+geopandas
+rasterio
+shapely
+pyproj
+fiona
+xarray
+rioxarray
+earthengine-api
+geemap
+
+# Machine Learning & Deep Learning
+scikit-learn
+xgboost
+shap
+libpysal
+esda
+torch
+torchvision
+
+# Visualization & Dashboard
+matplotlib
+streamlit
+plotly

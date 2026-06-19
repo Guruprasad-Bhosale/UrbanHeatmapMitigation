@@ -1,0 +1,31 @@
+# Pune Urban Heat Mitigation System - Configuration
+
+# Geographic Hyperparameters
+spatial:
+  target_crs: "EPSG:32643"  # WGS 84 / UTM zone 43N
+  source_crs: "EPSG:4326"
+  resolution_meters: 30
+  bbox_wgs84:
+    min_lon: 73.65
+    min_lat: 18.35
+    max_lon: 74.15
+    max_lat: 18.75
+
+# Data Ingestion Parameters
+data:
+  gee_project_id: "your-gee-project-id" # Placeholder for Google Earth Engine project ID
+  target_months: [3, 4, 5]  # Target summer months (March, April, May) for heat analysis
+  years_of_interest: [2021, 2022, 2023]
+
+# Diagnostics & ML Pipeline
+ml:
+  random_seed: 42
+  test_size: 0.2
+  n_estimators: 100 # Default for Random Forest
+
+# Physics-Informed Neural Network (PINN)
+pinn:
+  learning_rate: 0.001
+  batch_size: 256
+  epochs: 100
+  hidden_layers: [128, 64, 32]
