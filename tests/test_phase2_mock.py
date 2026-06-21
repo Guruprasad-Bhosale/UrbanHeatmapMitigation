@@ -17,8 +17,8 @@ def create_mock_data():
     
     # Random realistic distributions
     np.random.seed(42)
-    lons = np.linspace(73.75, 73.95, n_pixels)
-    lats = np.linspace(18.45, 18.65, n_pixels)
+    lons = np.random.uniform(73.75, 73.95, n_pixels)
+    lats = np.random.uniform(18.45, 18.60, n_pixels)
     
     ndvi = np.random.uniform(-0.1, 0.8, n_pixels)
     ndbi = np.random.uniform(-0.5, 0.5, n_pixels)

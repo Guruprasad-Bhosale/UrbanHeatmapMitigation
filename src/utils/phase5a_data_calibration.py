@@ -17,26 +17,15 @@ def calibrate_dataset():
     n_pixels = len(df)
     print(f"Loaded {n_pixels} Phase 2 attribution pixels for calibration.")
     
-    # 1. 2D Coordinate Calibration (Pune Shivajinagar ~73.85, 18.53)
-    # We want a 20x25 grid to represent 500 contiguous pixels
-    grid_w = 20
-    grid_h = 25
+    # Organic Scatter (Pune Bounding Box)
+    lon_min, lon_max = 73.75, 73.95
+    lat_min, lat_max = 18.45, 18.60
     
-    # 30m spatial resolution is approximately 0.00027 decimal degrees
-    lon_start = 73.85
-    lat_start = 18.53
-    step = 0.00027
+    # Generate scattered random coords
+    df['longitude'] = np.random.uniform(lon_min, lon_max, n_pixels)
+    df['latitude'] = np.random.uniform(lat_min, lat_max, n_pixels)
     
-    lons = np.linspace(lon_start, lon_start + (grid_w * step), grid_w)
-    lats = np.linspace(lat_start, lat_start + (grid_h * step), grid_h)
-    
-    # Generate contiguous 2D meshgrid
-    lon_grid, lat_grid = np.meshgrid(lons, lats)
-    
-    # Flatten the grids and inject them into the dataframe
-    df['longitude'] = lon_grid.flatten()[:n_pixels]
-    df['latitude'] = lat_grid.flatten()[:n_pixels]
-    print(f"Successfully calibrated coordinates into a contiguous {grid_w}x{grid_h} block.")
+    print(f"Successfully scattered {n_pixels} points across Pune bounds.")
     
     # 2. Thermodynamic Summer Shift
     # Push the mock winter LST values (~25C) to realistic summer daytime highs (~40C)

@@ -1,0 +1,86 @@
+@import "leaflet/dist/leaflet.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    /* UrbanHeatAI Dark Mode - Climate Tech */
+    --background: #0B1220;
+    --foreground: #E8EAED;
+    --card: #1E293B;
+    --card-foreground: #E8EAED;
+    --popover: #1E293B;
+    --popover-foreground: #E8EAED;
+    
+    /* Primary: Electric Blue (AI confidence) */
+    --primary: #00D9FF;
+    --primary-foreground: #0B1220;
+    
+    /* Secondary: Cyberpunk Purple */
+    --secondary: #7C3AED;
+    --secondary-foreground: #E8EAED;
+    
+    /* Accent: Lime Green (cooling/positive) */
+    --accent: #00FF88;
+    --accent-foreground: #0B1220;
+    
+    --muted: #334155;
+    --muted-foreground: #94A3B8;
+    --destructive: #FF6B6B;
+    --destructive-foreground: #0B1220;
+    --border: #334155;
+    --input: #1E293B;
+    --ring: #00D9FF;
+    
+    /* Heat gradient colors for visualizations */
+    --heat-extreme: #FF1744;
+    --heat-severe: #FF6F00;
+    --heat-moderate: #FFC400;
+    --heat-mild: #00E676;
+    --heat-cool: #00B0FF;
+    
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: #0B1220;
+    --foreground: #E8EAED;
+    --card: #1E293B;
+    --card-foreground: #E8EAED;
+    --popover: #1E293B;
+    --popover-foreground: #E8EAED;
+    --primary: #00D9FF;
+    --primary-foreground: #0B1220;
+    --secondary: #7C3AED;
+    --secondary-foreground: #E8EAED;
+    --muted: #334155;
+    --muted-foreground: #94A3B8;
+    --accent: #00FF88;
+    --accent-foreground: #0B1220;
+    --destructive: #FF6B6B;
+    --destructive-foreground: #0B1220;
+    --border: #334155;
+    --input: #1E293B;
+    --ring: #00D9FF;
+    --heat-extreme: #FF1744;
+    --heat-severe: #FF6F00;
+    --heat-moderate: #FFC400;
+    --heat-mild: #00E676;
+    --heat-cool: #00B0FF;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}

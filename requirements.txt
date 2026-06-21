@@ -23,9 +23,7 @@ esda
 torch
 torchvision
 
-# Visualization & Dashboard
-matplotlib
-streamlit
-plotly
-folium
-streamlit-folium
+# Backend API
+fastapi
+uvicorn
+python-multipart
